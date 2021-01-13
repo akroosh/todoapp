@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align=center>
+    <h1>To Do App</h1>
+    <form method="post">
+            {%if is_desk%}
+            <label>Desk Title</label>
+            <input type="text" name="title" placeholder="Enter Todo...">
+
+            {%else%}
+            <label>Task Title</label>
+            <input type="text" name="title" placeholder="Enter Todo..." value="{{ task.title}}">
+            <label>Description</label>
+            <input type="text" name="description" placeholder="Tell me about..." value="{{ task.description }}">
+            {% if task.status %}
+            <input type="checkbox" checked="checked" name="status" value="True" />
+            {% else %}
+            <input type="checkbox" name="status" value="True" />
+            {% endif %}
+            {%endif%}
+
+            <br>
+            <button type="submit">Update</button>
+    </form>
+</body>
+</html>

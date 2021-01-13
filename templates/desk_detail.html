@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Task list for {{ desk.title }}</h1>
+        <h4>This desk was created at {{ desk.publish_date }}</h4>
+    {% for task in tasks %}
+        <p><a href="{{ url_for('task_detail', title=task.title)}}">{{ task.title }}</a>
+            {% if task.status %}
+        <input type="checkbox" checked="checked" name="status" value="True" />
+            {% else %}
+        <input type="checkbox" name="status" value="True" />
+            {% endif %}
+            <br>
+        </p>
+        {% endfor %}
+        <h3>Maybe u`d like to check your tasks this way)</h3>
+        {% for task in tasks1 %}
+        <p><a href="{{ url_for('task_detail', title=task.title)}}">{{ task.title }}</a>
+            {% if task.status %}
+        <input type="checkbox" checked="checked" name="status" value="True" />
+            {% else %}
+        <input type="checkbox" name="status" value="True" />
+            {% endif %}
+            <br>
+        </p>
+        {% endfor %}
+        <a href={{ url_for('create_task', desk_title=desk.title) }}>Wanna add new task?</a>
+    </div>
+</body>
+</html>

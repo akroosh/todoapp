@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align=center>
+    <h1>Create new desk</h1>
+    
+
+    <form method="post">
+        <div>
+            {%if is_desk%}
+            <label>Desk Title</label>
+            <input type="text" name="title" placeholder="Enter Todo...">
+            {%else%}
+            <label>Task Title</label>
+            <input type="text" name="title" placeholder="Enter Todo...">
+            <label>Description</label>
+            <input type="text" name="description" placeholder="Tell me about...">
+            <input type="checkbox" name="status" value="True" />
+            {%endif%}
+            <br>
+            <button type="submit">Create</button>
+
+        </div>
+    </div>
+    </form>
+</body>
+</html>

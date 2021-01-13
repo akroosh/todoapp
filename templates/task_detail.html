@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+        <h1>{{ task.title }} detail {% if task.status %}
+            <input type="checkbox" checked="checked" name="status" value="True" />
+                {% else %}
+            <input type="checkbox" name="status" value="True" />
+                {% endif %}</h1>
+        <p>
+            Description: {{ task.description }}
+            <br>
+            Published date: {{ task.publish_date }}
+            <br>
+            Changed at: {{ task.changed_date }}
+            <br>
+            <a href="{{ url_for('delete_task', id=task.id) }}">Delete this task</a> <a href="{{ url_for('update_task', id=task.id )}}">Edit this task</a>
+        </p>
+        </div>
+</body>
+</html>

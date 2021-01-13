@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div align="center">
+    <h1>Your Desk list</h1>
+
+    {% for desk in desk_list%}
+    <p><a href="desk/{{ desk.title }}">{{desk.title}}  </p>  
+    <a href="{{ url_for('delete_desk', id=desk.id)}}">Drop this desk</a> <a href="{{ url_for('update_desk', id=desk.id)}}">Edit this desk</a>
+    {% endfor %}
+    <br>
+    <br>
+    <br>
+    <div>
+        <a href={{ url_for('create_desk') }}>Wanna add new desk?</a>
+    </div>
+</div>
+</body>
+</html>
